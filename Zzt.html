@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>柱状图</title>
+    <style>
+      canvas {
+        border: 1px solid #333;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="a1" width="800" height="600">
+      该浏览器不支持canvas画布效果，请更换更高版本的浏览器！
+    </canvas>
+  </body>
+  <script>
+    //这是本人毛毛封装的canvas柱状图，如有不妥，欢迎指正！
+    var a1 = document.getElementById("a1"),
+      num = 0;
+    if (a1.getContext) {
+      var canvas1 = a1.getContext("2d");
+      canvas1.fillText("销", 50, 60);
+      canvas1.fillText("量", 50, 80);
+      canvas1.fillText("/", 50, 100);
+      canvas1.fillText("件", 50, 120);
+      canvas1.fillText("年份", 680, 530);
+      canvas1.beginPath();
+      canvas1.moveTo(100, 40);
+      canvas1.lineTo(100, 500);
+      canvas1.lineTo(700, 500);
+      canvas1.stroke();
+      canvas1.fillText("970", 75, 80);
+      canvas1.fillText("873", 75, 122);
+      canvas1.fillText("776", 75, 164);
+      canvas1.fillText("679", 75, 206);
+      canvas1.fillText("582", 75, 248);
+      canvas1.fillText("485", 75, 292);
+      canvas1.fillText("388", 75, 334);
+      canvas1.fillText("291", 75, 376);
+      canvas1.fillText("194", 75, 418);
+      canvas1.fillText("97", 80, 460);
+      canvas1.fillText("0", 80, 500);
+      canvas1.fillText("2011", 130, 520);
+      canvas1.fillText("2012", 200, 520);
+      canvas1.fillText("2013", 270, 520);
+      canvas1.fillText("2014", 340, 520);
+      canvas1.fillText("2015", 410, 520);
+      canvas1.fillText("2016", 480, 520);
+      canvas1.fillText("2017", 550, 520);
+      canvas1.fillText("2018", 620, 520);
+      var js1 = new Js(canvas1, 115, 500, 50, -300,255,0,0,1),
+        js2 = new Js(canvas1, 185, 500, 50, -200,255,255,0,1),
+        js3 = new Js(canvas1, 255, 500, 50, -150,255,0,255,1),
+        js4 = new Js(canvas1, 325, 500, 50, -400,0,255,0,1),
+        js5 = new Js(canvas1, 395, 500, 50, -275,0,0,255,1),
+        js6 = new Js(canvas1, 465, 500, 50, -85,0,0,0,1),
+        js7 = new Js(canvas1, 535, 500, 50, -450,255,78,88,1),
+        js8 = new Js(canvas1, 605, 500, 50, -440,15,88,88,1);
+      js1.jsq1();
+      js2.jsq1();
+      js3.jsq1();
+      js4.jsq1();
+      js5.jsq1();
+      js6.jsq1();
+      js7.jsq1();
+      js8.jsq1();
+      function Js(obj, x, y, w, count,color1,color2,color3,Opacity) {
+        this.obj = obj;
+        this.color1=color1;
+        this.color2=color2;
+        this.color3=color3;
+        this.Opacity=Opacity;
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.count = count;
+        this.jsq = function() {
+          if (num <= count) {
+            clearInterval(i);
+          } else {
+            obj.fillStyle="rgba("+color1+","+color2+","+color3+","+Opacity+")";
+            num -= 2;
+            obj.beginPath();
+            obj.rect(x, y, w, num);
+            obj.fill();
+          }
+        };
+        this.jsq1 = function() {
+          i = setInterval(this.jsq, 60);
+        };
+      }
+    }
+  </script>
+</html>
