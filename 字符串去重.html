@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      function aa(str){
+          if(typeof str=="string"){
+              var arr=str.split(""),
+              obj={},
+              newarr=[],
+              newstr="";
+              for(var i=0;i<arr.length;i++){
+                  obj[arr[i]]="abc";
+              }
+              for(prop in obj){
+                  newarr.push(prop);
+              }
+              newstr=newarr.join("");
+              console.log(newstr);
+          }else{
+              console.log("请输入正确格式的字符串！")
+          }  
+      }
+    </script>
+</body>
+</html>

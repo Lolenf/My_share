@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<style>
+		#a1{
+			width: 500px;
+			height: 50px;
+			color: #fcc;
+			background: #000;
+			line-height: 50px;
+			text-align: center;
+			font-size:25px;
+		}
+		</style>
+</head>
+<body>
+	<div id="a1">123</div>
+	<script>
+	 var n=window.prompt("请输入数字","0");
+function jc(x){
+		 if(x==1||x==0){
+			 return 1;
+		 }else{
+			  return x*jc(x-1);
+		 }
+	 }
+	 i=jc(n);
+	 document.getElementById("a1").innerHTML=i;
+	</script>   
+</body>
+</html>
